@@ -1,0 +1,43 @@
+<template name="savoury">
+  {{#with chooseTemplate}}
+    {{#with ../data}}
+      {{> ..}}
+    {{/with}}
+  {{/with}}
+</template>
+
+<template name="savoury__sending">
+  <div class="alert alert-info">
+    <i class="icon-refresh icon-spin"></i> {{message}}
+  </div>
+</template>
+
+<template name="savoury__error">
+  <div class="alert alert-warning">
+    <i class="icon-warning-sign"></i> {{message}}
+  </div>
+</template>
+
+<template name="savoury__complete">
+  <div class="alert alert-success">
+    <i class="icon-ok"></i> {{message}}
+  </div>
+</template>
+
+<template name="savoury_light__sending">
+  <span class="savoury-light-saving">
+    {{message}}
+  </span>
+</template>
+
+<template name="savoury_light__error">
+  <div class="alert alert-warning">
+    <i class="icon-warning-sign"></i> {{message}}
+  </div>
+</template>
+
+<template name="savoury_light__complete">
+  <span class="savoury-light-saved">
+    {{message}}
+  </span>
+</template>
