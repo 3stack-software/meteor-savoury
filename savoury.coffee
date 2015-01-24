@@ -96,7 +96,7 @@ class Savoury
 
   getMessage: -> @message.get()
 
-  isState: (state)-> @state.equals(state)
+  isState: (state)-> @state.get() == state
 
   isWaiting: -> @isState(Savoury.STATE_WAITING)
 
