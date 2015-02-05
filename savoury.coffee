@@ -82,7 +82,7 @@ class Savoury
     @sending()
     Meteor.apply methodName, args, options, (e, r)=>
       if e?
-        Log.error(e)
+        console?.error?(e)
         @error(e)
       else
         @complete(r)
