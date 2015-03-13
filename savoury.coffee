@@ -32,8 +32,10 @@ class Savoury
     tpl_complete: "savoury__complete"
     error: "There was an error processing your request"
     tpl_error: "savoury__error"
+    autoclear: true
+    autoclearTimer: 3000
 
-  constructor: (options={}, @autoclear=true)->
+  constructor: (options={})->
     #<debug>
     if typeof options == 'string'
       try throw new Error() catch e
@@ -73,12 +75,16 @@ class Savoury
   complete: (result)->
     @setMessage(Savoury.STATE_COMPLETE, result)
     @setState(Savoury.STATE_COMPLETE)
-    if @autoclear
-      Meteor.setTimeout @reset, 3000
+    if @options.autoclear
+      Meteor.setTimeout @reset, @options.autoclearTimer
 
     return
 
   wrapMethod: (methodName, args, options, callback)->
+    if _.isFunction(options)
+      callback = options
+      options = {}
+
     @sending()
     Meteor.apply methodName, args, options, (e, r)=>
       if e?
