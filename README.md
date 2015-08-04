@@ -1,9 +1,22 @@
 # Savoury
 
-Reactively show the user the progress of their method call.
+Reactively show the user the status of their method call.
 
 Just add to your template `{{> savoury mySavouryContext}}` and savoury will automatically render the right template
  based on the current status of your method calls.
+
+## Examples
+
+Basic bootstrap `alert-` based theme:
+
+(Useful for Server-Only methods)
+![savoury example](https://raw.githubusercontent.com/3stack-software/meteor-savoury/resources/savoury-full-example.gif)
+
+
+A "light" theme, useful for methods with latency compensation, but you still want to let a user know that it's saved.
+
+![savoury light example](https://raw.githubusercontent.com/3stack-software/meteor-savoury/resources/savoury-light-example.gif)
+
 
 ## Installing
 
